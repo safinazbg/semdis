@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {getCurrentInstance, ref} from "vue";
+import {ref} from "vue";
 import BaseInput from "@/components/BaseInput.vue";
 
 export default ({
@@ -14,9 +14,8 @@ export default ({
   components: {
     BaseInput,
   },
-  setup() {
+  setup(props,{emit}) {
     const userId = ref("");
-    const { emit } = getCurrentInstance();
 
     const handleLogin = () => {
       emit("login", userId.value);

@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-4 flex-col">
-    <label>
+    <label v-if="label">
       {{ label }}
     </label>
     <input class="inputField"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "BaseInput1.vue",
+  name: "BaseInput.vue",
   props: {
     label: {
       type: String,
@@ -25,10 +25,7 @@ export default {
       default: "",
     }
   },
-  setup(props) {
-    console.log(props.modelValue, "modelValue");
 
-  }
 }
 </script>
 
