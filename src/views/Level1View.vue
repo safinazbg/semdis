@@ -13,7 +13,10 @@
         :initial-word="currentRound.initialWord"
         :roundNumber="currentRound.roundNumber"
     />
+
+<!--
     <Level1Results v-if="Level1Results"/>
+-->
 
   </div>
 </template>
@@ -25,12 +28,11 @@ import IntroductionModal from "@/components/Modals/IntroductionModal.vue";
 import RulesModal from "@/components/Modals/RulesModal.vue";
 import ExampleModal from "@/components/Modals/ExampleModal.vue";
 import Level1GamePlay from "@/components/Level1GamePlay.vue";
-import Level1Results from "@/components/Level1Results.vue";
+import router from "@/router";
 
 export default {
   name: 'Level1View',
   components: {
-    Level1Results,
     Level1GamePlay,
     ExampleModal,
     RulesModal,
@@ -42,9 +44,8 @@ export default {
     const introduction = ref(true);
     const rules = ref(false);
     const example = ref(false);
-    const Level1GamePlayTraining = ref(false);
+    const Level1GamePlayTraining = ref(true);
     const Level1GamePlayReal = ref(false);
-    const Level1Results = ref(false);
     const currentRoundIndex = ref(0);
     const currentRound = computed(() => rounds[currentRoundIndex.value]);
 
@@ -53,8 +54,9 @@ export default {
       if (currentRoundIndex.value < 4){
       currentRoundIndex.value++;
       } else{
-        Level1GamePlayReal.value = false
-        Level1Results.value = true
+        router.push('/level1/results')
+        /*Level1GamePlayReal.value = false
+        Level1Results.value = true*/
       }
     };
 
@@ -84,7 +86,6 @@ export default {
 
     const showTrainingRoundModal = () => {
       example.value = false;
-      Level1GamePlayTraining.value = true;
     };
 
     const handleStartGame = () => {
@@ -104,7 +105,6 @@ export default {
       handleNextRound,
       Level1GamePlayReal,
       currentRound,
-      Level1Results
     }
   }
 }

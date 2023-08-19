@@ -5,8 +5,11 @@
     </template>
     <template #body>
       <ol class=" flex flex-col gap-4 pb-4 ">
-        <li>
+        <li v-if="!level2">
           1. Type <strong>five nouns</strong> whose meanings are as unrelated with the word at the top as possible.
+        </li>
+        <li v-if="level2">
+          1. Type <strong>five nouns</strong> whose meanings are as unrelated with the word at the top, <strong> and with each other</strong>, as possible.
         </li>
         <li>
           2. Be sure to type <strong> only one word at a time</strong>. Don’t make sentences or phrases.
@@ -34,6 +37,12 @@ import LModal from "@/components/Layout/LModal.vue";
 export default {
   name: "RulesModal",
   components: {LModal},
+  props: {
+    level2:{
+      type: Boolean,
+      default:false
+    }
+  },
   setup(_,{emit}) {
     let show = ref(true);
 
