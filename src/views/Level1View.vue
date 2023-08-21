@@ -2,6 +2,15 @@
   <div >
     <Header/>
     <!--Info modals-->
+<!--    <transition name="modal" mode="out-in">
+      <IntroductionModal v-if="introduction" @close="showRulesModal"/>
+    </transition>
+    <transition name="modal" mode="out-in">
+      <RulesModal v-if="rules" @close="showExampleModal"/>
+    </transition>
+    <transition name="modal" mode="out-in">
+      <ExampleModal v-if="example" @close="showTrainingRoundModal"/>
+    </transition>-->
     <IntroductionModal v-if="introduction" @close="showRulesModal"/>
     <RulesModal v-if="rules" @close="showExampleModal"/>
     <ExampleModal v-if="example" @close="showTrainingRoundModal"/>
@@ -13,10 +22,6 @@
         :initial-word="currentRound.initialWord"
         :roundNumber="currentRound.roundNumber"
     />
-
-<!--
-    <Level1Results v-if="Level1Results"/>
--->
 
   </div>
 </template>
@@ -55,8 +60,6 @@ export default {
       currentRoundIndex.value++;
       } else{
         router.push('/level1/results')
-        /*Level1GamePlayReal.value = false
-        Level1Results.value = true*/
       }
     };
 
@@ -109,3 +112,5 @@ export default {
   }
 }
 </script>
+
+

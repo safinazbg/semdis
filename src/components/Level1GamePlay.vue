@@ -14,7 +14,9 @@
     </div>
     <div class="w-96">
       <div class="flex ">
-        <BaseInput v-model="userInput" class="!rounded-r-none w-full "/>
+        <BaseInput v-model="userInput" class="!rounded-r-none w-full "
+                   @keydown.enter="handleEnterKey"
+        />
         <button @click="handleSubmitWord" :disabled="wordCount === 5"
                 :class="{'disabledButton hover:bg-slate-500 hover:border-slate-500 ':wordCount === 5}"
                 class="primaryButton !rounded-l-none h-fit border border-blue-500">Submit
@@ -27,7 +29,9 @@
 
     <div class="opacity-0 select-none" :class="{
       'opacity-100 translate-y-1 ': wordCount === 5 && showButton}">
-    Good Job, get ready for the next round
+      <p v-if="roundNumber === 5"> Well done you finished Level 1. Go see how well you did</p>
+      <p v-else>       Good Job, get ready for the next round
+      </p>
     </div>
     <button @click="nextRound" :class="{
       'opacity-100 translate-y-1': wordCount === 5 && showButton
@@ -84,21 +88,26 @@ export default {
       // Submit the userWords to the database
       // Convert the data object to JSON
       const jsonData = JSON.stringify(userWords.value, null, 2); // Using null, 2 for pretty formatting
-      // Lav spread operater og add det hele til den samme
       localStorage.setItem(`roundData${props.roundNumber}`, jsonData);
       userWords.value = {}
       emit('next-round')
+    }
+    const handleEnterKey= () => {
+      if (wordCount.value !== 5 ) {
+        handleSubmitWord();
+      }
     }
     const handleSubmitWord = async () => {
       // inputError.value = true;
       //validate noun and if error then:
 
-      //Random number for now
-
+      if (userInput.value !== ""){
       const randomScore = Math.floor(Math.random() * 100) + 1;
       const currentUserInput = userInput.value
       userInput.value = ""
       userWords.value[currentUserInput] = {score: randomScore}
+      }
+      //Random number for now
     };
 
     watch(inputError, (newValue) => {
@@ -130,7 +139,8 @@ export default {
       inputError,
       userWords,
       nextRound,
-      showButton
+      showButton,
+      handleEnterKey
     }
   }
 }

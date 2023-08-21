@@ -8,7 +8,7 @@
         <li>
           For level 2, the goal is still to think of the  <strong>most unrelated nouns</strong> that you can.        </li>
         <li>
-          But this time, you must type <strong> five nouns that are very distant from each other </strong>, not just the prompt word.        </li>
+          But this time, you must type <strong> five nouns that are very distant from each other</strong>, not just the prompt word.        </li>
       </ol>
 
     </template>

@@ -26,6 +26,11 @@ const routes = [
     path: '/level2',
     name: 'level2',
     component: () => import('../views/Level2View.vue')
+  },
+  {
+    path: '/done',
+    name: 'done',
+    component: () => import('../views/FinishedView.vue')
   }
 ]
 

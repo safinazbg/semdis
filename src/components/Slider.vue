@@ -30,12 +30,12 @@ export default {
   setup(props){
     const currentValue = ref(-1);
     const fillStyle = computed(() => {
-      let fillColor = "green"; // Default to green
+      let fillColor = "rgba(34, 197, 94, 1)"; // Default to green (bg-green-500)
 
       if (props.score >= 0 && props.score <= 33) {
-        fillColor = "red";
+        fillColor = "rgba(239, 68, 68, 1)"; // Equivalent to bg-red-500
       } else if (props.score > 33 && props.score <= 66) {
-        fillColor = "yellow";
+        fillColor = "rgba(234, 179, 8, 1)"; // Equivalent to bg-yellow-500
       }
       return `width: ${currentValue.value}%; background-color: ${fillColor}; transition: width 1s ease-in-out;`;
     });

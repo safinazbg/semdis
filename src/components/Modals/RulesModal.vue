@@ -18,8 +18,12 @@
           3. <strong>Avoid proper nouns</strong> (e.g., no specific people or places).
         </li>
       </ol>
-      <p>You will start with 1 practice round. Then, you will play 5 rounds of the game. For each round, you will see a
+       <p v-if="level2" class="pt-2" >You will play <strong>5 rounds </strong> of the game. For each round, you will see a
         word and type the five most distant nouns you can think of.</p>
+      <p v-else class="pt-2">
+        You will start with 1 practice round. Then, you will play 5 rounds of the game. For each round, you will see a
+        word and type the five most distant nouns you can think of.
+      </p>
     </template>
     <template #button>
       <button class="primaryButton ml-auto  " @click="onNext"
