@@ -1,5 +1,5 @@
 <template>
-  <LModal class="visible " :class="{ 'hidden': !show} " show="show" @close="show = false">
+  <LModal >
     <template #title>
       Examples
     </template>
@@ -29,24 +29,17 @@
 </template>
 
 <script>
-import {ref} from "vue";
 import LModal from "@/components/Layout/LModal.vue";
 
 export default {
   name: "ExampleModal",
   components: {LModal},
   setup(_,{emit}) {
-    let show = ref(true);
-
     const onNext = () => {
       emit("close")
-      show.value=false
     };
 
-
-
     return {
-      show,
       onNext,
     }
   }

@@ -1,9 +1,9 @@
 <template>
   <Header/>
   <div class="flex flex-col justify-center text-center ">
-    <h1 class=" text-5xl font-bold">Level 1 Results</h1>
+    <h1 class=" text-4xl relative -top-4 font-bold">Level 1 Results</h1>
     <div class=" w-full flex justify-center">
-      <div class="w-3/5 p-4 ">
+      <div class="w-3/5 p-2 ">
         <ChartContainer/>
       </div>
     </div>

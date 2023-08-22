@@ -7,7 +7,7 @@
         You may now come back to the Prolific website
       </h1>
     </div>
-  <div class="w-full p-4 mt-12 bg-slate-100">
+  <div class="w-full p-8 mt-8 bg-slate-100">
     <div class="w-full flex flex-col gap-6 justify-center k1:flex-row k1:justify-around items-center ">
       <div class="w-full k1:w-5/12">
         <h1 class="text-3xl">Result Level 1</h1>

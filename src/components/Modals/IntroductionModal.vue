@@ -1,5 +1,5 @@
 <template>
-  <LModal class="visible " :class="{ 'hidden': !show} " show="show" @close="show = false">
+  <LModal class="">
     <template #title>
       LINKS is a creative word association game.
     </template>
@@ -25,21 +25,17 @@
 
 <script>
 import LModal from "@/components/Layout/LModal.vue";
-import {ref} from "vue";
 
 export default {
   name: "IntroductionModal",
   components: {LModal},
   setup(_,{emit}) {
-    let show = ref(true);
 
     const onNext = () => {
-      show.value=false
       emit("close")
     };
 
     return {
-      show,
       onNext,
     }
   }

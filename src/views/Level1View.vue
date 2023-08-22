@@ -1,19 +1,15 @@
 <template>
   <div >
+
     <Header/>
-    <!--Info modals-->
-<!--    <transition name="modal" mode="out-in">
-      <IntroductionModal v-if="introduction" @close="showRulesModal"/>
-    </transition>
-    <transition name="modal" mode="out-in">
-      <RulesModal v-if="rules" @close="showExampleModal"/>
-    </transition>
-    <transition name="modal" mode="out-in">
-      <ExampleModal v-if="example" @close="showTrainingRoundModal"/>
-    </transition>-->
-    <IntroductionModal v-if="introduction" @close="showRulesModal"/>
+
+      <IntroductionModal v-show="introduction" @close="showRulesModal" />
+      <RulesModal v-show="rules" @close="showExampleModal" />
+      <ExampleModal v-show="example" @close="showTrainingRoundModal" />
+<!--    <IntroductionModal v-if="introduction" @close="showRulesModal"/>
     <RulesModal v-if="rules" @close="showExampleModal"/>
-    <ExampleModal v-if="example" @close="showTrainingRoundModal"/>
+    <ExampleModal v-if="example" @close="showTrainingRoundModal"/>-->
+
 
     <Level1GamePlay v-if="Level1GamePlayTraining" @next-round="handleStartGame" initial-word="Bench" practice-round/>
     <Level1GamePlay
@@ -22,8 +18,7 @@
         :initial-word="currentRound.initialWord"
         :roundNumber="currentRound.roundNumber"
     />
-
-  </div>
+    </div>
 </template>
 
 <script>
