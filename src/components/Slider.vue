@@ -1,5 +1,5 @@
 <template>
-  <div class=" flex w-full">
+  <div class=" flex w-full ">
     <div class="">{{ index + 1 }} - {{ word }}</div>
     <div class="value ml-auto">{{ score }} / 100</div>
   </div>

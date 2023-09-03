@@ -3,7 +3,7 @@
   <div class="flex flex-col justify-center text-center ">
     <h1 class=" text-4xl relative -top-4 font-bold">Level 1 Results</h1>
     <div class=" w-full flex justify-center">
-      <div class="w-3/5 p-2 ">
+      <div class="k1:w-3/5 w-full p-2 ">
         <ChartContainer/>
       </div>
     </div>
@@ -19,7 +19,7 @@
 <script>
 import Header from "@/components/Header.vue";
 import router from "@/router";
-import ChartContainer from "@/components/Level1ChartContainer.vue";
+import ChartContainer from "@/components/Level1/Level1ChartContainer.vue";
 
 export default {
   name: "Level1ResultsView",

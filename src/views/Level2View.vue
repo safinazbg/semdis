@@ -14,7 +14,7 @@
 <script>
 import Header from "@/components/Header";
 import {computed, ref} from "vue";
-import RulesModal from "@/components/Modals/RulesModal.vue";
+import RulesModal from "@/components/Modals/Level1/RulesModal.vue";
 import DetailsModal from "@/components/Modals/Level2/DetailsModal.vue";
 import Level2IntroductionModal from "@/components/Modals/Level2/Level2IntroductionModal.vue";
 import Level2GamePlay from "@/components/Level2/Level2GamePlay.vue";

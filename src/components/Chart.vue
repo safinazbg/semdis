@@ -48,7 +48,7 @@ export default {
         labels: [`1. ${props.name1}`, `2. ${props.name2}`, `3. ${props.name3}`, `4. ${props.name4}`, `5. ${props.name5}`],
         datasets: [
           {
-            label: "Average Score",
+            label: "",
             data: [props.data1, props.data2, props.data3, props.data4, props.data5],
             backgroundColor: ["rgba(159, 176, 220, 1)",
               "rgba(245, 182, 154, 1)",
@@ -65,6 +65,11 @@ export default {
         type: "bar",
         data: data,
         options: {
+          plugins: {
+            legend: {
+              display: false, // Hide the legend (which contains the label and its color)
+            },
+          },
           animation: {
             duration: 1000,
             delay: (context) => {

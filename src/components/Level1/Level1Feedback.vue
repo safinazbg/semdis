@@ -9,7 +9,7 @@
     </h2>
     <div v-for="(value, key, index) in userWordsFromStorage" :key="index" class="flex flex-col gap-4">
       <div class="flex gap-2 pb-4 h-fit items-end ">
-        <div class="w-96  ">
+        <div class="k1:w-96 w-72  ">
           <div class=" flex w-full">
             <div class="">{{ initialWord }} - {{ key }}</div>
             <div class="value ml-auto">{{ value.score }} / 100</div>
@@ -27,9 +27,9 @@
                   d="M5 5h8m-1-3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1m6 0v3H6V2m6 0h4a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4m0 9.464 2.025 1.965L12 9.571"/>
           </svg>
           <div v-if="tooltipVisible === index"
-               class="w-56 rounded-xl border-2 absolute transform  -translate-y-1/2  top-1/2  -translate-x-full -left-2 "
+               class="w-56 rounded-xl border-2 absolute transform  -translate-y-1/2  top-1/2 k1:translate-x-0 k1:left-12   -translate-x-full -left-2 "
           >
-            <div class="w-3 h-3 transform rotate-45 bg-slate-300 absolute transform  -translate-y-1/2  top-1/2 translate-x-full right-1"></div>
+            <div class="w-3 h-3 transform rotate-45 bg-slate-300 absolute transform   -translate-y-1/2 k1:-translate-x-2 k1:left-0  top-1/2 translate-x-full  right-1"></div>
             <div class=" p-2 rounded-t-lg border-b bg-slate-200">
               <h1>I Think the score should be</h1>
             </div>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
+import Header from "@/components/Header.vue";
 import RoundNumberDisplay from "@/components/RoundNumberDisplay.vue";
 import {onMounted, onUnmounted, ref, watch} from "vue";
 

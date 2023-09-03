@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .inputField {
-    @apply bg-blue-50 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300;
+    @apply bg-blue-50 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-100;
 }
 
 .primaryButton {

@@ -15,7 +15,7 @@
         </li>
       </ol>
       <div class="flex justify-center">
-        <img src="../../assets/rules.gif" alt="rules" class=" w-full h-56 mt-4 object-cover self-center">
+        <img src="../../../assets/rules.gif" alt="rules" class=" w-full h-56 mt-4 object-cover self-center">
       </div>
 
     </template>

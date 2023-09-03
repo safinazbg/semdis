@@ -15,7 +15,7 @@
 
     </template>
     <template #button>
-      <button class="primaryButton ml-auto  " @click="onNext"
+      <button class="primaryButton ml-auto" @click="onNext"
       >
         Next
       </button>

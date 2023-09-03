@@ -8,11 +8,11 @@
     <h2 class="text-4xl pb-8">
       {{ initialWord }}
     </h2>
-    <div class="w-96 ">
+    <div class="k1:w-96 w-80 ">
       <p class="text-end pb-2">
         Total Words: {{ wordCount }} / 5</p>
     </div>
-    <div class="w-96">
+    <div class=" k1:w-96 w-80">
       <div class="flex ">
         <BaseInput v-model="userInput" class="!rounded-r-none w-full "
                    @keydown.enter="handleEnterKey"
@@ -41,14 +41,16 @@
       <p v-if="roundNumber !== 5">Next Round</p>
       <p v-if="roundNumber === 5">See Results</p>
     </button>
-    <Level1Rules/>
+    <div class="k1:w-96 w-80">
+      <Level1Rules/>
+    </div>
   </div>
 </template>
 
 <script>
 import BaseInput from "@/components/BaseInput.vue";
 import {computed, onMounted, ref, watch} from "vue";
-import Level1Rules from "@/components/Level1Rules.vue";
+import Level1Rules from "@/components/Level1/Level1Rules.vue";
 import Sliders from "@/components/Sliders.vue";
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import RoundNumberDisplay from "@/components/RoundNumberDisplay.vue";

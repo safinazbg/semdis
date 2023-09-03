@@ -17,7 +17,7 @@
 import router from "@/router";
 import GiveFeedbackModal from "@/components/Modals/Feedback/GiveFeedbackModal.vue";
 import {computed, ref} from "vue";
-import Level1Feedback from "@/components/Level1Feedback.vue";
+import Level1Feedback from "@/components/Level1/Level1Feedback.vue";
 
 export default {
   name: "Level1FeedbackView",

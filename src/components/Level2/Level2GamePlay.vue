@@ -12,11 +12,11 @@
       </h2>
     </div>
 
-    <div class="w-96 ">
+    <div class="k1:w-96 w-80 ">
       <p class="text-end pb-2">
         Total Words: {{ wordCount -1 }} / 5</p>
     </div>
-    <div class="w-96">
+    <div class="k1:w-96 w-80">
       <div class="flex ">
         <BaseInput v-model="userInput" class="!rounded-r-none w-full "
                    @keydown.enter="handleEnterKey"
@@ -47,17 +47,17 @@
     }" class="opacity-0 text-xl font-bold " >
       <p>Your global score is {{ matrixAverageValue }}/100</p>
     </div>
-    <div class="w-96  my-4">
-      <p class="font-bold text-md">Score matrix of the distances between words</p>
-      <div class="w-full  px-2 pt-12 py-8 bg-slate-200 ">
+    <div class="k1:w-[500px] w-80  my-4">
+      <div class="w-full px-2 pt-2 text-center pb-8 bg-slate-200 ">
+      <p class="font-bold text-md py-4 ">Score matrix of the distances between words</p>
         <table class="mx-auto">
           <tbody>
-          <tr v-for="(word, rowIndex) in userWords" :key="rowIndex" class="text-center text-xs">
+          <tr v-for="(word, rowIndex) in userWords" :key="rowIndex" class="text-center k1:text-xs text-[10px]">
             <td>{{ word }}</td>
             <td
                 v-for="(comparisonWord, colIndex) in userWords"
                 :key="colIndex"
-                class=" border w-12 h-12"
+                class=" border k1:w-12 k1:h-12 w-10 h-10"
                 :style="{
               backgroundColor: getColor(getMatrixValue(rowIndex, colIndex))
                 }"
@@ -70,15 +70,16 @@
           </tbody>
           <tr>
             <th></th>
-            <th v-for="(word, colIndex) in userWords" :key="colIndex" class="text-xs font-normal transform -rotate-45 relative top-2 right-2 pt-2">{{ word }}</th>
+            <th v-for="(word, colIndex) in userWords" :key="colIndex" class="k1:text-xs text-[10px] font-normal transform -rotate-45 relative top-2 right-2 pt-2">{{ word }}</th>
           </tr>
         </table>
       </div>
       <p class="">The green and red tiles respectively indicate your highest and lowest score</p>
 
     </div>
-
-    <Level1Rules/>
+    <div class="k1:w-96 w-80">
+      <Level1Rules/>
+    </div>
 
   </div>
 </template>
@@ -87,7 +88,7 @@
 import ErrorMessage from "@/components/ErrorMessage.vue";
 import {computed, onMounted, ref, watch} from "vue";
 import BaseInput from "@/components/BaseInput.vue";
-import Level1Rules from "@/components/Level1Rules.vue";
+import Level1Rules from "@/components/Level1/Level1Rules.vue";
 import RoundNumberDisplay from "@/components/RoundNumberDisplay.vue";
 
 export default {

@@ -24,10 +24,10 @@
 <script>
 import Header from "@/components/Header";
 import {computed, ref} from "vue";
-import IntroductionModal from "@/components/Modals/IntroductionModal.vue";
-import RulesModal from "@/components/Modals/RulesModal.vue";
-import ExampleModal from "@/components/Modals/ExampleModal.vue";
-import Level1GamePlay from "@/components/Level1GamePlay.vue";
+import IntroductionModal from "@/components/Modals/Level1/IntroductionModal.vue";
+import RulesModal from "@/components/Modals/Level1/RulesModal.vue";
+import ExampleModal from "@/components/Modals/Level1/ExampleModal.vue";
+import Level1GamePlay from "@/components/Level1/Level1GamePlay.vue";
 import router from "@/router";
 
 export default {

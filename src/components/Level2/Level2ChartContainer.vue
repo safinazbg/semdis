@@ -8,7 +8,7 @@ import ChartComponent from "@/components/Chart.vue";
 export default {
   name: "Level2ChartContainer",
   components: {ChartComponent},
-  setup(){
+  setup(_,{emit}){
 
     //GET THE AVARAGE SCORE FROM THE 5 rounds in LEVEL 2, FOR NOW JUST RANDOM STUFF FROM LOCAL STORAGE
     const loadedDataBelt  = localStorage.getItem("Level2roundData1") || 10;
@@ -29,6 +29,16 @@ export default {
     const averageNet = calculateAverage(JSON.parse(loadedDataNet)) || 30;
     const averageEarth = calculateAverage(JSON.parse(loadedDataEarth)) ||40;
     const averageTray = calculateAverage(JSON.parse(loadedDataTray)) ||50;
+
+
+    const calculateAllAverage = Math.round((averageBelt + averageTea + averageNet+ averageEarth + averageTray) / 5)
+
+    function emitAverage() {
+      emit('average-calculated', calculateAllAverage);
+    }
+
+    emitAverage()
+
     return {
       averageBelt,
       averageTea,

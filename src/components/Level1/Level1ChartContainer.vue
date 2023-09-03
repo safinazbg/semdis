@@ -1,6 +1,5 @@
 <template>
   <ChartComponent :data1="averageTrain" name1="Train" name2="Steam" name3="Page" name4="Sink" name5="Fence" :data2="averageSteam" :data3="averagePage" :data4="averageSink" :data5="averageFence"/>
-
 </template>
 
 <script>
@@ -10,7 +9,7 @@ export default {
   name: "Level1ChatContainer"
   ,
   components: {ChartComponent},
-  setup(){
+  setup(_, {emit}){
     const loadedDataTrain  = localStorage.getItem("roundData1") || 0;
     const loadedDataSteam = localStorage.getItem("roundData2") || 0;
     const loadedDataPage = localStorage.getItem("roundData3") || 0;
@@ -29,12 +28,22 @@ export default {
     const averagePage = calculateAverage(JSON.parse(loadedDataPage));
     const averageSink = calculateAverage(JSON.parse(loadedDataSink));
     const averageFence = calculateAverage(JSON.parse(loadedDataFence));
+
+    const calculateAllAverage = Math.round((averageTrain + averageSteam + averagePage+ averageSink+ averageFence) / 5)
+
+    function emitAverage() {
+      emit('average-calculated', calculateAllAverage);
+    }
+    emitAverage()
+
+
     return {
       averageTrain,
       averageSteam,
       averagePage,
       averageSink,
-      averageFence
+      averageFence,
+      calculateAllAverage,
     };
   }
 }
