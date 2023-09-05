@@ -27,17 +27,18 @@
 
     <Sliders :user-words="userWords"/>
 
-    <div class="opacity-0 select-none" :class="{
+    <div class="opacity-0 select-none transition-all duration-200" :class="{
       'opacity-100 translate-y-1 ': wordCount === 5 && showButton}">
       <p v-if="roundNumber === 5"> Well done you finished Level 1. Go see how well you did</p>
       <p v-else>       Good Job, get ready for the next round
       </p>
     </div>
-    <button @click="nextRound" :class="{
+    <button @click="nextRound"  class="primaryButton opacity-0 transition-all duration-500 mt-4"
+      :class="{
       'opacity-100 translate-y-1': wordCount === 5 && showButton
     }"
             :disabled="!showButton"
-            class="primaryButton opacity-0 transition-all duration-1000 mt-4">
+    >
       <p v-if="roundNumber !== 5">Next Round</p>
       <p v-if="roundNumber === 5">See Results</p>
     </button>

@@ -29,7 +29,7 @@
       </div>
       <ErrorMessage :input-error="inputError"/>
     </div>
-    <div class="opacity-0 select-none" :class="{
+    <div class="opacity-0 select-none transition-all duration-200" :class="{
       'opacity-100 translate-y-1 ': wordCount === 6 && showButton}">
       <p v-if="roundNumber === 5"> Well done you finished the game. Thank you for playing</p>
       <p v-else> Good Job, get ready for the next round</p>
@@ -38,7 +38,7 @@
       'opacity-100 translate-y-1': wordCount === 6 && showButton
     }"
             :disabled="!showButton"
-            class="primaryButton opacity-0 transition-all duration-1000 mt-4">
+            class="primaryButton opacity-0 transition-all duration-500 mt-4">
       <p v-if="roundNumber === 5">See Results</p>
       <p v-else>Next Round</p>
     </button>
