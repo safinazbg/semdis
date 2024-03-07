@@ -4,7 +4,7 @@
     <div class="">{{ index + 1 }} - {{ word }}</div>
     <div class="value ml-auto">{{ score }} / 100</div>
   </div>
-  <div class="w-full rounded-md h-6 w-full bg-slate-200">
+  <div class="w-full rounded-md h-6  bg-slate-200">
     <div class="h-full rounded-md"  :style="fillStyle"></div>
   </div>
 </template>

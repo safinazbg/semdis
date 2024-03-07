@@ -1,22 +1,14 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center ">
+    <div class="flex flex-col items-center relative k1:w-96 w-80">
     <RoundNumberDisplay :round-number="roundNumber"/>
-    <p class="">A distant word from
-    </p>
-    <div class=" w-96 text-center">
-<!--      <h2 class="text-2xl pb-3 ">
-        {{ initialWord }}
-      </h2>-->
-      <h2 class="text-2xl pb-3" v-for="(word, index) in userWords" :key="index">
+    <p class="">A distant word from </p>
+      <h2 class="text-2xl text-center pb-3" v-for="(word, index) in userWords" :key="index">
         {{ word }}
       </h2>
-    </div>
-
-    <div class="k1:w-96 w-80 ">
-      <p class="text-end pb-2">
+      <p class="w-full text-end pb-2">
         Total Words: {{ wordCount -1 }} / {{ totalWords }}</p>
-    </div>
-    <div class="k1:w-96 w-80">
+    <div class="">
       <div class="flex ">
         <BaseInput v-model="userInput" class="!rounded-r-none w-full "
                    @keydown.enter="handleEnterKey"
@@ -77,8 +69,9 @@
       <p class="">The green and red tiles respectively indicate your highest and lowest score</p>
 
     </div>
-    <div class="k1:w-96 w-80">
+      <div class="k1:absolute -right-12 -top-12 w-80  k1:translate-x-full">
       <Level1Rules/>
+     </div>
     </div>
 
   </div>

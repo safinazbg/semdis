@@ -1,18 +1,18 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex items-center flex-col">
+  <div class="flex flex-col items-center k1:w-96 w-80 relative">
     <PracticeRoundDisplay :practice-round="practiceRound"/>
     <RoundNumberDisplay :round-number="roundNumber"/>
-    <p class="">A distant word from
-    </p>
+    <p class="">A distant word from</p>
 
     <h2 class="text-4xl pb-8">
       {{ initialWord }}
     </h2>
-    <div class="k1:w-96 w-80 ">
+    <div class=" ">
       <p class="text-end pb-2">
         Total Words: {{ wordCount }} / {{ totalWords }}</p>
     </div>
-    <div class=" k1:w-96 w-80">
+    <div class=" ">
       <div class="flex ">
         <BaseInput v-model="userInput" class="!rounded-r-none w-full "
                    @keydown.enter="handleEnterKey"
@@ -32,7 +32,7 @@
       <p v-if="roundNumber === totalWords"> Well done you finished Level 1. Go see how well you did</p>
       <p v-else>Good Job, get ready for the next round</p>
     </div>
-    <button @click="nextRound"  class="primaryButton opacity-0 transition-all duration-500 mt-2"
+    <button @click="nextRound"  class="primaryButton opacity-0 transition-all duration-500 my-2 mb-6"
       :class="{
       'opacity-100 translate-y-1': wordCount === totalWords && showButton
     }"
@@ -41,10 +41,12 @@
       <p v-if="roundNumber === totalRounds">See Results</p>
       <p v-else>Next Round</p>
     </button>
-    <div class="k1:w-96 w-80">
+    <div class="k1:absolute -right-12 -top-12 w-80  k1:translate-x-full">
       <Level1Rules/>
     </div>
   </div>
+  </div>
+
 </template>
 
 <script>

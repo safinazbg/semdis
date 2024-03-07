@@ -2,7 +2,6 @@
   <Header/>
   <div class="flex flex-col items-center">
     <RoundNumberDisplay :round-number="roundNumber"/>
-
     <h2 class="text-4xl pb-8">
       Round {{ roundNumber }}:
       {{ initialWord }}
@@ -14,7 +13,7 @@
             <div class="">{{ initialWord }} - {{ key }}</div>
             <div class="value ml-auto">{{ value.score }} / 100</div>
           </div>
-          <div class="w-full rounded-md h-6 w-full bg-slate-200">
+          <div class="w-full rounded-md h-6 bg-slate-200">
             <div class="h-full rounded-md" :style="fillStyle(value.score)"></div>
           </div>
         </div>
@@ -29,45 +28,41 @@
           <div v-if="tooltipVisible === index"
                class="w-56 rounded-xl border-2 absolute transform  -translate-y-1/2  top-1/2 k1:translate-x-0 k1:left-12   -translate-x-full -left-2 "
           >
-            <div class="w-3 h-3 transform rotate-45 bg-slate-300 absolute transform   -translate-y-1/2 k1:-translate-x-2 k1:left-0  top-1/2 translate-x-full  right-1"></div>
+            <div class="w-3 h-3 transform rotate-45 bg-slate-300 absolute -translate-y-1/2 k1:-translate-x-2 k1:left-0  top-1/2 translate-x-full  right-1"></div>
             <div class=" p-2 rounded-t-lg border-b bg-slate-200">
-              <h1>I Think the score should be</h1>
+              <h1>I think the score should be</h1>
             </div>
             <div class="flex flex-col gap-1 p-2 bg-white rounded-b-xl">
               <button @click="addFeedback(key,1 )" :class=" {'!bg-red-600 hover:!bg-red-600 border-black border-2' : value.feedback === 1}" class="primaryButton !bg-red-500 hover:!bg-red-600 w-full">A lot
-                Lower
+                lower
               </button>
               <button @click="addFeedback(key,2 )" :class=" {'!bg-yellow-600 hover:!bg-yellow-600 border-black border-2' : value.feedback === 2}" class="primaryButton !bg-yellow-500 hover:!bg-yellow-600 w-full">
-                Somewhat Lower
+                Somewhat lower
               </button>
               <button @click="addFeedback(key,3 )" :class=" {'!bg-gray-600 hover:!bg-gray-600 border-black border-2' : value.feedback === 3}" class="primaryButton !bg-gray-500 hover:!bg-gray-600 w-full">About
                 what it was
               </button>
-              <button @click="addFeedback(key,4 )" :class=" {'!bg-blue-600 hover:!bg-blue-600 border-black border-2' : value.feedback === 4}" class="primaryButton w-full">Somewhat Higher</button>
+              <button @click="addFeedback(key,4 )" :class=" {'!bg-blue-600 hover:!bg-blue-600 border-black border-2' : value.feedback === 4}" class="primaryButton w-full">Somewhat higher</button>
               <button @click="addFeedback(key,5 )" :class=" {'!bg-green-600 hover:!bg-green-600 border-black border-2' : value.feedback === 5}" class="primaryButton !bg-green-500 hover:!bg-green-600 w-full">A lot
-                Higher
+                higher
               </button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-
-
     <h1 v-if="allFeedbackProvided" class="m-2 select-none">
-
       Thank you for the feedback
     </h1>
     <h1 v-if="!allFeedbackProvided" class="m-2 select-none">
       Please give feedback to all 7
     </h1>
-    <button @click="nextRound" :class="{
+    <button @click="nextRound"  :class="{
       'disabledButton': !allFeedbackProvided,
       'primaryButton': allFeedbackProvided
     }"
             :disabled="!allFeedbackProvided"
-            class=" transition-all duration-1000 ">
+            class=" transition-all duration-1000 mb-8 ">
       <p v-if="roundNumber !== 5">Evaluate Round {{ roundNumber + 1 }}</p>
       <p v-if="roundNumber === 5">Start Level 2</p>
     </button>
