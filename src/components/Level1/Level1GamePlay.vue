@@ -10,15 +10,15 @@
     </h2>
     <div class="k1:w-96 w-80 ">
       <p class="text-end pb-2">
-        Total Words: {{ wordCount }} / 5</p>
+        Total Words: {{ wordCount }} / {{ totalWords }}</p>
     </div>
     <div class=" k1:w-96 w-80">
       <div class="flex ">
         <BaseInput v-model="userInput" class="!rounded-r-none w-full "
                    @keydown.enter="handleEnterKey"
         />
-        <button @click="handleSubmitWord" :disabled="wordCount === 5"
-                :class="{'disabledButton hover:bg-slate-500 hover:border-slate-500 ':wordCount === 5}"
+        <button @click="handleSubmitWord" :disabled="wordCount === totalWords"
+                :class="{'disabledButton hover:bg-slate-500 hover:border-slate-500 ':wordCount === totalWords}"
                 class="primaryButton !rounded-l-none h-fit border border-blue-500">Submit
         </button>
       </div>
@@ -28,19 +28,18 @@
     <Sliders :user-words="userWords"/>
 
     <div class="opacity-0 select-none transition-all duration-200" :class="{
-      'opacity-100 translate-y-1 ': wordCount === 5 && showButton}">
-      <p v-if="roundNumber === 5"> Well done you finished Level 1. Go see how well you did</p>
-      <p v-else>       Good Job, get ready for the next round
-      </p>
+      'opacity-100 translate-y-1 ': wordCount === totalWords && showButton}">
+      <p v-if="roundNumber === totalWords"> Well done you finished Level 1. Go see how well you did</p>
+      <p v-else>Good Job, get ready for the next round</p>
     </div>
-    <button @click="nextRound"  class="primaryButton opacity-0 transition-all duration-500 mt-4"
+    <button @click="nextRound"  class="primaryButton opacity-0 transition-all duration-500 mt-2"
       :class="{
-      'opacity-100 translate-y-1': wordCount === 5 && showButton
+      'opacity-100 translate-y-1': wordCount === totalWords && showButton
     }"
             :disabled="!showButton"
     >
-      <p v-if="roundNumber !== 5">Next Round</p>
-      <p v-if="roundNumber === 5">See Results</p>
+      <p v-if="roundNumber === totalRounds">See Results</p>
+      <p v-else>Next Round</p>
     </button>
     <div class="k1:w-96 w-80">
       <Level1Rules/>
@@ -86,6 +85,8 @@ export default {
     const userInput = ref("");
     const inputError = ref(false);
     const showButton = ref(false);
+    const totalWords = 7
+    const totalRounds = 5
 
     const nextRound = () => {
       // Submit the userWords to the database
@@ -96,7 +97,7 @@ export default {
       emit('next-round')
     }
     const handleEnterKey= () => {
-      if (wordCount.value !== 5 ) {
+      if (wordCount.value !== totalWords ) {
         handleSubmitWord();
       }
     }
@@ -122,10 +123,10 @@ export default {
     });
 
     watch(wordCount, (newValue) => {
-      if (newValue === 5) {
+      if (newValue === totalWords) {
         setTimeout(() => {
           showButton.value = true;
-        }, 2000);
+        }, 300);
       }
     });
 
@@ -143,7 +144,9 @@ export default {
       userWords,
       nextRound,
       showButton,
-      handleEnterKey
+      handleEnterKey,
+      totalWords,
+      totalRounds
     }
   }
 }

@@ -60,7 +60,7 @@
       Thank you for the feedback
     </h1>
     <h1 v-if="!allFeedbackProvided" class="m-2 select-none">
-      Please give feedback to all 5
+      Please give feedback to all 7
     </h1>
     <button @click="nextRound" :class="{
       'disabledButton': !allFeedbackProvided,

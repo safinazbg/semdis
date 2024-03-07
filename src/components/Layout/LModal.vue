@@ -11,7 +11,7 @@
       </div>-->
       <div class="flex flex-col gap-8">
 
-        <div class="text-center heading1 pt-6">
+        <div class="text-center heading1 pt-2">
           <slot name="title"></slot>
         </div>
         <div class="px-8 text-left">

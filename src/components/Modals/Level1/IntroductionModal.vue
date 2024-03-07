@@ -9,7 +9,7 @@
           The goal is to think of the most unrelated nouns you can think of.
         </li>
         <li>
-          You will see a word and type five nouns that are very distant from it.
+          You will see a word and you will have to type 7 nouns that are very distant from that word, but also from each other as possible.
         </li>
       </ol>
 

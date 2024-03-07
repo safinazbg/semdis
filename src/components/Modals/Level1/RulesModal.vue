@@ -6,10 +6,10 @@
     <template #body>
       <ol class=" flex flex-col gap-4 pb-4 ">
         <li v-if="!level2">
-          1. Type <strong>five nouns</strong> whose meanings are as unrelated with the word at the top as possible.
+          1. Type <strong>7 nouns</strong>, whose meanings are as unrelated with the word at the top <strong> and each other as possible</strong>.
         </li>
         <li v-if="level2">
-          1. Type <strong>five nouns</strong> whose meanings are as unrelated with the word at the top, <strong> and with each other</strong>, as possible.
+          1. Type <strong>7 nouns</strong> whose meanings are as unrelated with the word at the top <strong> and each other as possible </strong>.
         </li>
         <li>
           2. Be sure to type <strong> only one word at a time</strong>. Don’t make sentences or phrases.
@@ -19,10 +19,10 @@
         </li>
       </ol>
        <p v-if="level2" class="pt-2" >You will play <strong>5 rounds </strong> of the game. For each round, you will see a
-        word and type the five most distant nouns you can think of.</p>
+        word and type the 7 most distant nouns you can think of.</p>
       <p v-else class="pt-2">
         You will start with 1 practice round. Then, you will play 5 rounds of the game. For each round, you will see a
-        word and type the five most distant nouns you can think of.
+        word and type the 7 most distant nouns you can think of.
       </p>
     </template>
     <template #button>

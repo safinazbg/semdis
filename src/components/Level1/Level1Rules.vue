@@ -1,5 +1,5 @@
 <template>
-  <div class=" relative  bg-slate-100 my-12 px-8 p-4 rounded-md">
+  <div class=" relative bg-slate-100 my-6 px-8 p-4 rounded-md">
     <p class="font-bold pb-3">Rules:</p>
     <svg class=" w-6 h-6 absolute right-4 top-4 text-gray-800 dark:text-white" aria-hidden="true"
          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

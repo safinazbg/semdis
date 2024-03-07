@@ -14,7 +14,7 @@
 
     <div class="k1:w-96 w-80 ">
       <p class="text-end pb-2">
-        Total Words: {{ wordCount -1 }} / 5</p>
+        Total Words: {{ wordCount -1 }} / {{ totalWords }}</p>
     </div>
     <div class="k1:w-96 w-80">
       <div class="flex ">
@@ -22,28 +22,28 @@
                    @keydown.enter="handleEnterKey"
 
         />
-        <button @click="handleSubmitWord" :disabled="wordCount === 6"
-                :class="{'disabledButton hover:bg-slate-500 hover:border-slate-500 ':wordCount === 6}"
+        <button @click="handleSubmitWord" :disabled="wordCount === totalWords+1"
+                :class="{'disabledButton hover:bg-slate-500 hover:border-slate-500 ':wordCount === totalWords+1}"
                 class="primaryButton !rounded-l-none h-fit border border-blue-500">Submit
         </button>
       </div>
       <ErrorMessage :input-error="inputError"/>
     </div>
     <div class="opacity-0 select-none transition-all duration-200" :class="{
-      'opacity-100 translate-y-1 ': wordCount === 6 && showButton}">
-      <p v-if="roundNumber === 5"> Well done you finished the game. Thank you for playing</p>
+      'opacity-100 translate-y-1 ': wordCount === totalWords+1 && showButton}">
+      <p v-if="roundNumber === totalWords"> Well done you finished the game. Thank you for playing</p>
       <p v-else> Good Job, get ready for the next round</p>
     </div>
     <button @click="nextRound" :class="{
-      'opacity-100 translate-y-1': wordCount === 6 && showButton
+      'opacity-100 translate-y-1': wordCount === totalWords+1 && showButton
     }"
             :disabled="!showButton"
-            class="primaryButton opacity-0 transition-all duration-500 mt-4">
-      <p v-if="roundNumber === 5">See Results</p>
+            class="primaryButton opacity-0 transition-all duration-500 mt-2">
+      <p v-if="roundNumber === totalWords">See Results</p>
       <p v-else>Next Round</p>
     </button>
     <div :class="{
-      'opacity-100 translate-y-1 pt-4': wordCount === 6 && showButton
+      'opacity-100 translate-y-1 pt-4': wordCount === totalWords +1 && showButton
     }" class="opacity-0 text-xl font-bold " >
       <p>Your global score is {{ matrixAverageValue }}/100</p>
     </div>
@@ -112,6 +112,7 @@ export default {
     const userInput = ref("");
     const matrixData = ref([]);
     const matrixAverageValue = ref(0);
+    const totalWords = 7
 
     watch(userWords, (newUserWords) => {
       matrixData.value = generateMatrixData(newUserWords);
@@ -156,7 +157,7 @@ export default {
     };
 
     const handleEnterKey = () => {
-      if (wordCount.value !== 6) {
+      if (wordCount.value !== totalWords +1) {
         handleSubmitWord();
       }
     }
@@ -189,7 +190,7 @@ export default {
     });
 
     watch(wordCount, (newValue) => {
-      if (newValue === 6) {
+      if (newValue === totalWords) {
         setTimeout(() => {
           showButton.value = true;
         }, 300);
@@ -213,7 +214,8 @@ export default {
       getColor,
       getMatrixValue,
       calculateMatrixAverage,
-      matrixAverageValue
+      matrixAverageValue,
+      totalWords
     }
   }
 }
